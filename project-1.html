@@ -38,20 +38,94 @@
 
 				<!-- Main -->
 					<div id="main">
+    <section class="post">
+        <header class="major">
+            <h1>Strategic Revenue Optimization &<br />
+            Automated Pricing Architecture</h1>
+            <p>Case Study: Building an automated Salesforce and Excel ecosystem to execute a risk-mitigated pricing strategy post-acquisition, capturing $200K+ in ARR with near-zero churn.</p>
+        </header>
 
-						<!-- Post -->
-							<section class="post">
-								<header class="major">
-									<span class="date">April 25, 2017</span>
-									<h1>Business Optimization & Revenue Impact Analysis</h1>
-									<p>Case Study: Identifying operational inefficiencies<br />
-									and revenue leaks using data modeling.</p>
-								</header>
-								<div class="image main"><img src="images/pic01.jpg" alt="" /></div>
-								<p>[case study content coming soon]</p>
-							</section>
+        <h2>Executive Summary</h2>
+        <p>Following a corporate acquisition by private investors, optimizing legacy revenue streams became a critical operational priority. Partnering with the Director of Operations, I engineered an end-to-end pricing and risk model targeting long-tenured, deeply discounted accounts. By building a daily-automated data pipeline between Salesforce and a multi-tiered Excel model, we identified and executed targeted rate adjustments. This automated ecosystem captured nearly <strong>$17,000 in monthly recurring revenue (MRR)</strong>—a <strong>1.5% boost to total company ARR</strong>—while maintaining a world-class customer retention rate (>98%).</p>
 
-					</div>
+        <hr />
+
+        <h2>Phase 1: Salesforce Extraction & Cross-Filtering</h2>
+        <p>A primary challenge was isolating true targets without disrupting add-on products or clients paying full price. Using native Salesforce reporting tools, I developed a refined extraction strategy:</p>
+        <ul>
+            <li><strong>Cross-Filtered Account Querying:</strong> I generated primary Salesforce Account Reports cross-filtered against <em>Accounts with Subscription Reports</em>. This stripped away accounts that only utilized add-on services (such as digital marketing or standalone tools).</li>
+            <li><strong>Core Product Isolation:</strong> By filtering out noise, the query explicitly isolated legacy accounts holding our core platform subscription at a discounted rate for 18+ months, ensuring rate adjustments were applied strictly to primary subscription tiers.</li>
+        </ul>
+
+        <hr />
+
+        <h2>Phase 2: Bounded Modeling & Multi-Criteria Excel Mechanics</h2>
+        <p>To eliminate manual lookup errors, I engineered a dynamic pricing matrix. The model evaluated two independent data dimensions simultaneously—commercial vehicles on-lot alongside active package tier types—to map accounts to their designated rate increase:</p>
+
+        <div class="table-wrapper" style="margin-top: 2rem; margin-bottom: 2rem;">
+            <table class="alt">
+                <thead>
+                    <tr>
+                        <th>Cohort Tier</th>
+                        <th>Dealer Inventory Volume</th>
+                        <th>Target Increase (%)</th>
+                        <th>Model Guardrail Rule</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Tier 1</strong></td>
+                        <td>Small Independent (Low On-Lot Volume)</td>
+                        <td>+ 8% Increase</td>
+                        <td>Bounded to Min of % Lift vs. Standard List Price</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tier 2</strong></td>
+                        <td>Mid-Sized Operations</td>
+                        <td>+ 12% Increase</td>
+                        <td>Bounded to Min of % Lift vs. Standard List Price</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tier 3</strong></td>
+                        <td>Large Commercial Hubs</td>
+                        <td>+ 18% Increase</td>
+                        <td>Bounded to Min of % Lift vs. Standard List Price</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tier 4</strong></td>
+                        <td>High-Volume Mega Groups</td>
+                        <td>+ 24% Increase</td>
+                        <td>Bounded to Min of % Lift vs. Standard List Price</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p>Using multi-criteria array formulas, combining boolean logic within <code>XLOOKUP</code> structures, the sheet automatically matched live inventory data against package tiers to reference the exact target adjustment percentage. To protect client relationships, a strict logical guardrail ensured the new rate would never exceed standard list price:</p>
+
+        $$ \text{Adjusted Rate} = \min\Big(\text{Current Discounted Rate} \times (1 + R_{\text{tier}}), \, \text{Standard List Price}\Big) $$
+
+        <hr />
+
+        <h2>Phase 3: Automated Syncing & Recurring Opportunity Pipeline</h2>
+        <p>Instead of creating a static one-time spreadsheet, I architected a repeatable, dynamic analytics ecosystem built for ongoing operational use:</p>
+        <ul>
+            <li><strong>Automated Salesforce Integration:</strong> Configured automated daily report extractions out of Salesforce, ensuring the master modeling environment automatically refreshed with live account changes, inventory updates, and subscription statuses.</li>
+            <li><strong>Quarterly Opportunity Identification Engine:</strong> The underlying nested <code>XLOOKUP</code> architecture allowed leadership to revisit the ecosystem every quarter. As accounts crossed the 18-month tenure threshold or shifted inventory tiers, the system automatically highlighted new low-hanging revenue opportunities.</li>
+        </ul>
+
+        <hr />
+
+        <h2>Phase 4: Tech-Touch Rollout & Financial Results</h2>
+        <p>I partnered directly with Customer Success Managers (CSMs) to translate data outputs into client-facing actions. We configured automated Outreach sequences that gave dealers a generous 3-to-6 month advance notice, easing the transition and explaining the expanded platform value.</p>
+        
+        <ul>
+            <li><strong>$200K+ Annualized Revenue Captured:</strong> Against an initial projection of $18,000 MRR, the automated model successfully secured $16,900+ in net new MRR ($202,000+ ARR) on the initial pass.</li>
+            <li><strong>Near-Zero Churn (<2% Attrition):</strong> Out of ~120 targeted legacy accounts, only 2 dealers canceled citing the price adjustment, proving the high precision of the cohort segmentation.</li>
+            <li><strong>Repeatable RevOps Framework:</strong> Provided executive leadership with a permanent, automated tool to monitor pricing parity on a quarterly basis without manual overhead.</li>
+        </ul>
+    </section>
+</div>
 
 				<!-- Footer -->
 					<footer id="footer">
